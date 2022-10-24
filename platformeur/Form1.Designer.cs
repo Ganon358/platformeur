@@ -184,7 +184,7 @@
             this.pictureBox10.TabIndex = 10;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "piece";
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+        
             // 
             // pictureBox11
             // 
