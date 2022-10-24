@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\platformeur",
+    "\\platformeur\\bin",
+    "\\platformeur\\bin\\Release",
+    "\\platformeur\\bin\\Release\\net6.0-windows",
+    "\\platformeur\\obj",
+    "\\platformeur\\obj\\Debug",
+    "\\platformeur\\obj\\Release",
+    "\\platformeur\\obj\\Release\\net6.0-windows",
+    "\\platformeur\\obj\\Release\\net6.0-windows\\refint"
+  ],
+  "SelectedNode": "\\platformeur\\Form1.cs",
+  "PreviewInSolutionExplorer": false
+}
