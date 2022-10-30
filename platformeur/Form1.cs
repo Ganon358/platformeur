@@ -68,7 +68,7 @@ namespace platformeur
                             this.Controls.Remove(pictureBox19);
                             if (m is PictureBox && (string)m.Tag == "boss")
                             {
-                                m.Top += 2*gravitation;
+                                m.Top += 100;
                             }
                         }
                     }
