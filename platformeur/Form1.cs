@@ -8,8 +8,11 @@ namespace platformeur
         int timesaut = 0;
         int vitesse=10;
         int vitessem = 3;
+        int vitesseb = 3;
+        int vitesser = 3;
         int gravitation = 15 ;
         int piece = 0;
+        int start = 0;
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +37,45 @@ namespace platformeur
         {
 
         }
+
+        private void begin()
+        {
+            foreach (Control m in this.Controls)
+            {
+                if (m is PictureBox && (string)m.Tag == "start")
+                {
+                    if (player.Bounds.IntersectsWith(m.Bounds))
+                    {
+                        this.Controls.Remove(pictureBox22);
+                        start += 1;
+                    }
+                }
+            }
+        }
+
+        private void win()
+        {
+            foreach (Control z in this.Controls)
+            {
+                foreach (Control m in this.Controls)
+                {
+                    if (z is PictureBox && (string)z.Tag == "bouton")
+                    {
+                        if (player.Bounds.IntersectsWith(z.Bounds))
+                        {
+                            this.Controls.Remove(pictureBox21);
+                            this.Controls.Remove(pictureBox17);
+                            this.Controls.Remove(pictureBox19);
+                            if (m is PictureBox && (string)m.Tag == "boss")
+                            {
+                                m.Top += 2*gravitation;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void gravity()
         {
             foreach (Control m in this.Controls)
@@ -47,6 +89,26 @@ namespace platformeur
             }
         }
 
+        private void BOSS()
+        {
+            foreach (Control m in this.Controls)
+            {
+                if (m is PictureBox && (string)m.Tag == "boss")
+                {
+                    m.Top += gravitation;
+                    m.BringToFront();
+                   if (start==1)
+                    {
+                        m.Left += vitesseb;
+                        if (m.Left < 254 || m.Left > 683)
+                        {
+                            vitesseb = -vitesseb;
+                        }
+                    }
+                }
+            }
+        }
+
         private void gravityr()
         {
             foreach (Control m in this.Controls)
@@ -55,10 +117,10 @@ namespace platformeur
                 {
                     m.Top += gravitation;
                     m.BringToFront();
-                    m.Left += vitessem;
+                    m.Left += vitesser;
                     if (m.Left < 773 || m.Left > 938)
                     {
-                        vitessem = -vitessem;
+                        vitesser = -vitesser;
                     }
                 }
             }
@@ -99,7 +161,11 @@ namespace platformeur
             player.Top += gravitation;
             gravity();
             gravityr();
+            BOSS();
             plateform();
+            begin();
+            win();
+           
            
           
             if (gauche == true && player.Left > 0)
@@ -179,6 +245,23 @@ namespace platformeur
                         }
                     }
 
+                    if (m is PictureBox && (string)m.Tag == "boss")
+                    {
+
+                        if (player.Bounds.IntersectsWith(m.Bounds))
+                        {
+                            this.Controls.Remove(player);
+
+                        }
+                        if (x is PictureBox && (string)x.Tag == "support")
+                        {
+                            if (m.Bounds.IntersectsWith(x.Bounds))
+                            {
+                                m.Top -= gravitation;
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -235,6 +318,21 @@ namespace platformeur
         private void monstre_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void pictureBox20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox21_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
