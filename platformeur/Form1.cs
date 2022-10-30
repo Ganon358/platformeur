@@ -47,6 +47,23 @@ namespace platformeur
             }
         }
 
+        private void gravityr()
+        {
+            foreach (Control m in this.Controls)
+            {
+                if (m is PictureBox && (string)m.Tag == "rouge")
+                {
+                    m.Top += gravitation;
+                    m.BringToFront();
+                    m.Left += vitessem;
+                    if (m.Left < 773 || m.Left > 938)
+                    {
+                        vitessem = -vitessem;
+                    }
+                }
+            }
+        }
+
         private void plateform()
         {
             foreach (Control x in this.Controls)
@@ -55,7 +72,7 @@ namespace platformeur
                 {
 
                     x.Left += vitessem;
-                    if (x.Left < 633 ||x.Left > 1100)
+                    if (x.Left < 554 ||x.Left > 1100)
                     {
                         vitessem = -vitessem;
                     }
@@ -63,7 +80,7 @@ namespace platformeur
                     {
                         player.Top -= gravitation;
                         timesaut = 10;
-                        if (x.Left < 633 || x.Left > 1100)
+                        if (x.Left < 554 || x.Left > 1100)
                         {
                             player.Left -= vitessem;
                         }
@@ -81,6 +98,7 @@ namespace platformeur
             saut = 30;
             player.Top += gravitation;
             gravity();
+            gravityr();
             plateform();
            
           
@@ -144,6 +162,23 @@ namespace platformeur
                         }
 
                     }
+                    if (m is PictureBox && (string)m.Tag == "rouge")
+                    {
+
+                        if (player.Bounds.IntersectsWith(m.Bounds))
+                        {
+                            this.Controls.Remove(player);
+
+                        }
+                        if (x is PictureBox && (string)x.Tag == "support")
+                        {
+                            if (m.Bounds.IntersectsWith(x.Bounds))
+                            {
+                                m.Top -= gravitation;
+                            }
+                        }
+                    }
+
                 }
             }
         }
