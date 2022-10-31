@@ -1,3 +1,5 @@
+using System;
+
 namespace platformeur
 {
     public partial class Form1 : Form
@@ -181,6 +183,8 @@ namespace platformeur
                 player.Top -= saut;
                 timesaut -= 1;
                 saut -= 2;
+                
+
             }
             foreach (Control x in this.Controls)
             {
@@ -211,12 +215,10 @@ namespace platformeur
                             player.Top -= gravitation;
                             timesaut = 10;
                         }
+
                     }
 
-                    if (x is PictureBox && (string)x.Tag == "supportmoove")
-                    {
-                        
-                    }
+                   
                     if (x is PictureBox && (string)x.Tag == "piece")
                     {
                         if (player.Bounds.IntersectsWith(x.Bounds))
@@ -278,7 +280,8 @@ namespace platformeur
             }
             if (e.KeyCode == Keys.Space)
             {
-                jump = true; 
+                jump = true;
+               
             }
 
         }
@@ -349,6 +352,7 @@ namespace platformeur
             {
                 jump = false;
                 timesaut = 0;
+                
             }
         }
     }

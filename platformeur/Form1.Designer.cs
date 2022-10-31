@@ -63,7 +63,6 @@
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -101,7 +100,7 @@
             // player
             // 
             this.player.BackColor = System.Drawing.Color.Red;
-            this.player.Location = new System.Drawing.Point(94, 498);
+            this.player.Location = new System.Drawing.Point(68, 507);
             this.player.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(24, 41);
@@ -460,15 +459,6 @@
             this.pictureBox30.TabStop = false;
             this.pictureBox30.Tag = "piece";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(430, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "label2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -476,7 +466,6 @@
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1243, 590);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox30);
             this.Controls.Add(this.pictureBox29);
             this.Controls.Add(this.pictureBox28);
@@ -589,6 +578,5 @@
         private PictureBox pictureBox28;
         private PictureBox pictureBox29;
         private PictureBox pictureBox30;
-        private Label label2;
     }
 }
