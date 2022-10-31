@@ -15,6 +15,7 @@ namespace platformeur
         int gravitation = 15 ;
         int piece = 0;
         int start = 0;
+        int message = 1;
         public Form1()
         {
             InitializeComponent();
@@ -157,6 +158,34 @@ namespace platformeur
             }
         }
 
+        private void gameover()
+        {
+            if (message == 1)
+            {
+                moove.Stop();
+                MessageBox.Show("Game Over");
+                message++;
+                return;
+            }
+           
+  
+            
+        }
+
+        private void youwin()
+        {
+            if (message == 1)
+            {
+                moove.Stop();
+                MessageBox.Show("You Win");
+                message++;
+                return;
+            }
+
+
+
+        }
+
         private void mooveevent(object sender, EventArgs e)
         {
             saut = 30;
@@ -186,6 +215,11 @@ namespace platformeur
                 
 
             }
+            if (player.Top >= 538)
+            {
+                this.Controls.Remove(player);
+                gameover();
+            }
             foreach (Control x in this.Controls)
             {
                 foreach (Control m in this.Controls)
@@ -196,6 +230,8 @@ namespace platformeur
                         if (player.Bounds.IntersectsWith(m.Bounds))
                         {
                             this.Controls.Remove(player);
+                            gameover();
+                           
 
                         }
                         if (x is PictureBox && (string)x.Tag == "support")
@@ -204,6 +240,13 @@ namespace platformeur
                             {
                                 m.Top -= gravitation;
                             }
+                        }
+                    }
+                    if (x is PictureBox && (string)x.Tag == "winner")
+                    {
+                        if (player.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            youwin();
                         }
                     }
 
@@ -236,6 +279,7 @@ namespace platformeur
                         if (player.Bounds.IntersectsWith(m.Bounds))
                         {
                             this.Controls.Remove(player);
+                            gameover();
 
                         }
                         if (x is PictureBox && (string)x.Tag == "support")
@@ -253,6 +297,9 @@ namespace platformeur
                         if (player.Bounds.IntersectsWith(m.Bounds))
                         {
                             this.Controls.Remove(player);
+                            gameover();
+                            
+                           
 
                         }
                         if (x is PictureBox && (string)x.Tag == "support")
