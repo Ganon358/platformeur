@@ -19,4 +19,10 @@ Il s’agit d’un jeu ou on incarne un personnage devant aller de plateforme en
 
 Fonctionnalité.
 
-Notre personnage peut se déplacer à
+Notre personnage peut se déplacer à gauche et à droite avec les touches gauche et droite, il peut sauter avec la touches saut mais par contre il ne peut pas faire de double saut, il peut tomber, tenir sur les plateformes fixes et mouvante.
+Il y a 2 type de plateforme, celle fixe et celle qui se déplace.
+Si notre personnage touche une pièces, celle-ci disparaitra et son compteur de point augmentera de 1.
+Notre personnage peut mourir soit en touchant un ennemie ou en tombant dans le vide, à ce moment-là un message Game Over apparaitra.
+Si notre personnage touche le personnage rose à la fin du niveau, il gagne la partie et un message you win apparaitra.
+Il y a 3 type d’ennemie, les monstres qui se déplace toujours tout droit, ceux qui font demi-tours dé qu’ils sont sur l’extrémité d’une plateforme et le boss.
+Le boss commence à bouger dé qu’on arrive sur une plateforme très précise, il bouge lui aussi de gauche à droite sur sa plateforme mais on peut le tuer en appuyant sur le bouton au fond de la plateforme pour détruire la plateforme sur laquelle le boss est pour qu’il meurt et détruire le mur qui nous empêche d’accéder à la fin.
